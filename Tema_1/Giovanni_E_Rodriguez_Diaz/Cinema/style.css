@@ -122,6 +122,8 @@ body {
     /*   width: 120px;
     height: 120px; */
     transition: background-color 0.3s ease;
+    animation-name: an2;
+    animation-duration: 1s;
 }
 
 .selected {
@@ -134,7 +136,7 @@ body {
 }
 
 
-.clAn2 {
+.clAn2:hover {
     /*  width: 120px;
     height: 120px; 
      */
@@ -210,6 +212,7 @@ body {
 .grid-item:active {
     background-color: #bcc8cf;
     outline: none;
+    
 
 }
 
@@ -222,10 +225,7 @@ body {
     text-align: center;
   
     height: 70px;
-   /*  display: grid;
-    gap: 10px;
-    place-content: center;
-    place-items: center; */
+
     display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
