@@ -1,0 +1,42 @@
+# API servicio de reserva cine
+
+CRUD de Películas
+  •	Crear: POST /movies
+  •	Leer lista completa: GET /movies
+  •	Leer película por ID: GET /movies/{movieId}
+  •	Leer películas por título o género: GET /movies
+  •	Query Params: title, genre
+  •	Actualizar: PUT /movies/{movieId}
+  •	Eliminar todas las películas: DELETE /movies
+  •	Eliminar película por ID: DELETE /movies/{movieId}
+CRUD de Salas
+  •	Crear: POST /screens
+  •	Leer sala por ID: GET /screens/{screenId}
+  •	Modificar parcialmente: PATCH /screens/{screenId}
+  •	Eliminar: DELETE /screens/{screenId}
+CRUD de Usuarios
+  •	Crear: POST /users
+  •	Leer usuario por ID: GET /users/{userId}
+  •	Modificar parcialmente: PATCH /users/{userId}
+  •	Eliminar: DELETE /users/{userId}
+Gestión de Reservas
+  •	Crear reserva para un usuario en una sala: POST /users/{userId}/reservations
+  •	Leer todas las reservas de un usuario: GET /users/{userId}/reservations
+  •	Leer reserva por ID de usuario: GET /users/{userId}/reservations/{reservationId}
+  •	Modificar reserva de un usuario en una sala: PUT /users/{userId}/reservations
+  •	Registrar pago de una reserva: PATCH /users/{userId}/reservations/{reservationId}
+  •	Cancelar reserva de un usuario en una sala: DELETE /users/{userId}/reservations/{reservationId}
+
+|Método HTTP | URI                                          | Query Params | Cuerpo de la Petición                                                                                                               | Cuerpo de la Respuesta                                                                                                                                                                                                                                                                                           | Códigos de Respuesta                                                       |
+|-------------|----------------------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| GET         | /movies                                      | N/A          | N/A                                                                                                                                 | `{"movies": [{"movieId": 1, "title": "Movie 1", "image": "image1.jpg", "synopsis": "Synopsis of movie 1", "length": 120, "genre": "Drama", "rating": 9.0}, {"movieId": 2, "title": "Movie 2", "image": "image2.jpg", "synopsis": "Synopsis of movie 2", "length": 900, "genre": "Comedy", "rating": 8.5}, ...]}` | 200 OK<br/>204 No Content<br/>500 Internal Server Error                    |
+| GET         | /movies/{movieId}                            | N/A          | N/A                                                                                                                                 | `{"movieId": 1, "title": "Movie 1", "image": "image1.jpg", "synopsis": "Synopsis of movie 1", "length": 120, "genre": "Drama", "rating": 9.0}`                                                                                                                                                                   | 200 OK<br/>404 Not Found<br/>500 Internal Server Error                     |
+| GET         | /movies                                      | title, genre | N/A                                                                                                                                 | `{"movies": [{"movieId": 1, "title": "Movie 1", "image": "image1.jpg", "synopsis": "Synopsis of movie 1", "length": 120, "genre": "Drama", "rating": 9.0}, {"movieId": 3, "title": "Movie 3", "image": "image3.jpg", "synopsis": "Synopsis of movie 3", "length": 900, "genre": "Drama", "rating": 7.2}, ...]}`  | 200 OK<br/>400 Bad Request<br/>404 Not Found<br/>500 Internal Server Error |
+| POST        | /movies                                      | N/A          | `{"title": "Movie 4", "image": "image4.jpg", "synopsis": "Synopsis of movie 4", "length": 115, "genre": "Thriller", "rating": 6.7}` | `{"movieId": 4, "title": "Movie 4", "image": "image4.jpg", "synopsis": "Synopsis of movie 4", "length": 115, "genre": "Thriller", "rating": 6.7}`                                                                                                                                                                | 201 Created<br/>400 Bad Request<br/>500 Internal Server Error              |
+| PUT         | /movies/{movieId}                            | N/A          | `{"title": "Movie 1", "image": "image1.jpg", "synopsis": "Modified synopsis", "length": 130, "genre": "Comedy", "rating": 8.9}`     | `{"movieId": 1, "title": "Movie 1", "image": "image1.jpg", "synopsis": "Modified synopsis", "length": 130, "genre": "Comedy", "rating": 8.9}`                                                                                                                                                                    | 200 OK<br/>400 Bad Request<br/>404 Not Found<br/>500 Internal Server Error |
+| DELETE      | /movies                                      | N/A          | N/A                                                                                                                                 | `{"message": "All movies deleted"}`                                                                                                                                                                                                                                                                              | 200 OK<br/>500 Internal Server Error                                       |
+| DELETE      | /movies/{movieId}                            | N/A          | N/A                                                                                                                                 | `{"message": "Movie deleted"}`                                                                                                                                                                                                                                                                                   | 200 OK<br/>404 Not Found<br/>500 Internal Server Error                     |
+| GET         | /screens/{screenId}                          | N/A          | N/A                                                                                                                                 | `{"seatMap": [[{"id": 1, "occupied": false}, {"id": 2, "occupied": false}, ...], [{"id": 11, "occupied": false}, {"id": 12, "occupied": false}, ...]]}`                                                                                                                                                          | 200 OK<br/>404 Not Found<br/>500 Internal Server Error                     |
+| POST        | /screens                                     | N/A          | `{"rows": 10}`                                                                                                                      | `{"screenId": 123, "seatMap": [[{"id": 1, "occupied": false}, {"id": 2, "occupied": false}, ...], [{"id": 11, "occupied": false}, {"id": 12, "occupied": false}, ...]]}`                                                                                                                                         | 201 Created<br/>400 Bad Request<br/>500 Internal Server Error              |
+| PATCH       | /screens/{screenId}                          | N/A          | `{"selectedSeats": [11, 12]}`                                                                                                       | `{"seatMap": [[{"id": 1, "occupied": false}, {"id": 2, "occupied": false}, ...], [{"id": 11, "occupied": true}, {"id": 12, "occupied": true}, ...]]}`                                                                                                                                                            | 200 OK<br/>400 Bad Request<br/>404 Not Found<br/>500 Internal Server Error |
+| DELETE      | /screens/{screenId}

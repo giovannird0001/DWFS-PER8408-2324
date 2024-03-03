@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "El Señor de los Anillos: La Comunidad del Anillo",
+    "image": "https://pics.filmaffinity.com/the_lord_of_the_rings_the_fellowship_of_the_ring-407855602-large.jpg",
+    "synopsis": "Un joven hobbit llamado Frodo Bolsón es encargado de destruir un poderoso anillo antes de que caiga en manos del malvado Señor Oscuro, Sauron.",
+    "length": 178,
+    "genre": "Aventura, Fantasía",
+    "rating": 8.8
+  },
+  {
+    "id": 2,
+    "title": "Forrest Gump",
+    "image": "https://pics.filmaffinity.com/forrest_gump-547388673-large.jpg",
+    "synopsis": "Forrest Gump, un hombre con un coeficiente intelectual bajo, vive una vida extraordinaria, influyendo en eventos históricos sin siquiera darse cuenta.",
+    "length": 142,
+    "genre": "Drama, Romance",
+    "rating": 8.8
+  },
+  {
+    "id": 3,
+    "title": "Origen",
+    "image": "https://pics.filmaffinity.com/inception-893031260-large.jpg",
+    "synopsis": "Un ladrón de sueños altamente calificado entra en la mente de las personas para robar secretos valiosos. Ahora, le han encargado la tarea inversa: implantar una idea en la mente de alguien.",
+    "length": 148,
+    "genre": "Acción, Ciencia ficción",
+    "rating": 8.8
+  },
+  {
+    "id": 4,
+    "title": "El Rey León",
+    "image": "https://pics.filmaffinity.com/the_lion_king-213608246-large.jpg",
+    "synopsis": "Simba, un joven león, lucha por reclamar el trono que le pertenece después de que su tío usurpador, Scar, lo desterrara injustamente.",
+    "length": 88,
+    "genre": "Animación, Aventura",
+    "rating": 8.5
+  },
+  {
+    "id": 5,
+    "title": "Matrix",
+    "image": "https://pics.filmaffinity.com/the_matrix-414027202-large.jpg",
+    "synopsis": "Un programador descubre la verdad sobre su realidad y su papel en la guerra contra las máquinas que controlan la realidad simulada en la que vive la humanidad.",
+    "length": 136,
+    "genre": "Acción, Ciencia ficción",
+    "rating": 8.7
+  },
+  {
+    "id": 6,
+    "title": "El Padrino",
+    "image": "https://pics.filmaffinity.com/the_godfather-488102675-large.jpg",
+    "synopsis": "En el Nueva York de 1940, Don Vito Corleone, el patriarca de una de las familias más poderosas de la mafia, se ve envuelto en una guerra de bandas mientras sus hijos luchan por el control del negocio familiar.",
+    "length": 175,
+    "genre": "Drama, Crimen",
+    "rating": 9.0
+  }
+]
